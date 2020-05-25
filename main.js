@@ -10,7 +10,7 @@ module.exports.loop = function() {
   energyManagement.run();
 
   let rooms = _.filter(Game.rooms, e => e.memory.blockedForTransfer != undefined);
-  rooms.forEach(r => r.memory.blockedForTransfer.forEach(e => Game.getObjectById(e).room.visual.text('❎',Game.getObjectById(e).pos.x,Game.getObjectById(e).pos.y)););
+  rooms.forEach(r => r.memory.blockedForTransfer.forEach(e => Game.getObjectById(e).room.visual.text('❎',Game.getObjectById(e).pos.x,Game.getObjectById(e).pos.y)));
   // for(name in rooms) {
   //     let room = Game.rooms[name];
   //     room.memory.blockedForTransfer.forEach(e => Game.getObjectById(e).room.visual.text('❎',Game.getObjectById(e).pos.x,Game.getObjectById(e).pos.y));
