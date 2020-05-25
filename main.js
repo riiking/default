@@ -9,13 +9,14 @@ module.exports.loop = function() {
   //activat energyManagement
   energyManagement.run();
 
+
   Game.rooms['E11S27'].memory.blockedForTransfer.forEach(e => Game.getObjectById(e).room.visual.text('❎',Game.getObjectById(e).pos.x,Game.getObjectById(e).pos.y));
   Game.rooms['E12S27'].memory.blockedForTransfer.forEach(e => Game.getObjectById(e).room.visual.text('❎',Game.getObjectById(e).pos.x,Game.getObjectById(e).pos.y));
-  // if(Game.time % 500 == 0){
-  //   console.log('reset 500');
-  //   Game.rooms['E11S27'].memory.blockedForTransfer = [];
-  //   Game.rooms['E12S27'].memory.blockedForTransfer = [];
-  // }
+  if(Game.time % 500 == 0){
+    console.log('reset 500');
+    Game.rooms['E11S27'].memory.blockedForTransfer = [];
+    Game.rooms['E12S27'].memory.blockedForTransfer = [];
+  }
 
   //Post decay ceep actions and memory deletion
   for (let name in Memory.creeps) {
