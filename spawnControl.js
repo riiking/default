@@ -10,7 +10,6 @@ module.exports = {
 
       var energyForCreep = maxEnergy * reduceFactor;
       var newCreep;
-
       //New Creep generated only when Energy at 100%
       if (currentEnergy >= energyForCreep) {
         var creepsInRoom = spawn.room.find(FIND_MY_CREEPS);
@@ -100,8 +99,8 @@ module.exports = {
       }
 
       //Fallback creep
-      else if (Game.time % 100 === 0) {
-        var harvester = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+      else if (Game.time % 1 === 0) {
+        var harvester = _.filter(FIND_MY_CREEPS, (creep) => creep.memory.role == 'harvester' && creep.room == spawn.room);
         if (harvester.length == 0) {
           newCreep = spawn.createCustomCreep(currentEnergy, 'harvester');
           //Game.notify('Fallbackplan Alpha initiatet.\n The swarm in room '+ spawn.room.name + ' has only ' + currentEnergy + ' available! and no harvester. \n Emergency harvester created.')
