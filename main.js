@@ -9,7 +9,8 @@ module.exports.loop = function() {
   //activat energyManagement
   energyManagement.run();
 
-  for(let name in _.filter(Game.rooms, e => e.memory.blockedForTransfer != undefined)) {
+  let rooms = _.filter(Game.rooms, e => e.memory.blockedForTransfer != undefined);
+  for(name in rooms) {
       let room = Game.rooms[name];
       room.memory.blockedForTransfer.forEach(e => Game.getObjectById(e).room.visual.text('❎',Game.getObjectById(e).pos.x,Game.getObjectById(e).pos.y));
   }
